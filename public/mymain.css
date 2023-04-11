@@ -1,0 +1,17 @@
+
+
+
+.card{
+   margin-top:10rem;
+   margin-left:10rem;
+}
+
+#next{
+    margin-top: 3rem;
+    margin-left: 21rem;
+    display: none;
+}
+
+.choice{
+    background-color: rgb(167, 255, 159);
+}
