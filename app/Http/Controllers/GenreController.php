@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\genre;
+use App\Models\Genre as ModelsGenre;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -12,7 +13,9 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genres = Genre::all();
+
+        return response()->json(['genres'=>$genres]);
     }
 
     /**

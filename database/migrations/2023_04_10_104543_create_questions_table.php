@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('question');
+            $table->unsignedBigInteger('option1_id')->index();
+            $table->foreign('option1_id')->references('id')->on('options')->onDelete('cascade');
+            $table->unsignedBigInteger('option2_id')->index();
+            $table->foreign('option2_id')->references('id')->on('options')->onDelete('cascade');
+            $table->unsignedBigInteger('option3_id')->index();
+            $table->foreign('option3_id')->references('id')->on('options')->onDelete('cascade');
+            $table->unsignedBigInteger('option4_id')->index();
+            $table->foreign('option4_id')->references('id')->on('options')->onDelete('cascade');
             $table->timestamps();
         });
     }

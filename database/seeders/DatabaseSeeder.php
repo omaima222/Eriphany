@@ -24,5 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
              OptionsSeeder::class,
         ]);
+        $this->call([
+            GenreSeeder::class,
+       ]);
     }
 }

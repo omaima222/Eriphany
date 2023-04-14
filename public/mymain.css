@@ -15,3 +15,77 @@
 .choice{
     background-color: rgb(167, 255, 159);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* audio::-webkit-media-controls-timeline{
+    display: none;
+}
+audio::-webkit-media-controls-mute-button
+{
+    display: none;
+}
+audio::-webkit-media-controls-current-time-display{
+    display: none;
+}
+
+audio::-webkit-media-controls-time-remaining-display
+{
+    display: none;
+}
+audio::-webkit-media-controls-volume-slider
+{
+    display: none;
+}
+audio::-webkit-media-controls-volume-slider-container
+{
+    display: none;
+}
+audio::-webkit-media-controls-panel
+{
+    background-color: red;
+
+}
+audio{
+    /* width: 5rem;
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -ms-border-radius: 1px;
+    -o-border-radius: 1px; */
+/* }
+audio::-webkit-media-controls-toggle-closed-captions-button
+{
+    background-color: blue;
+    display: none;
+}
+
