@@ -20,4 +20,4 @@ $.ajax({
     }
 });
 
-
+console.log(questions[19])

@@ -95,85 +95,85 @@ class genreOptionseeder extends Seeder
         
             ['option_id' => 40, 'genre_id' => [4,16,13]],
         
-            ['option_id' => 41, 'genre_id' => []],
+            ['option_id' => 41, 'genre_id' => [2,3,10,19,8,6,17,14]],
         
-            ['option_id' => 42, 'genre_id' => []],
+            ['option_id' => 42, 'genre_id' => [1,5,16,20]],
         
-            ['option_id' => 43, 'genre_id' => []],
+            ['option_id' => 43, 'genre_id' => [7,18,15]],
         
-            ['option_id' => 44, 'genre_id' => []],
+            ['option_id' => 44, 'genre_id' => [9,4,11,12,13]],
         
-            ['option_id' => 45, 'genre_id' => []],
+            ['option_id' => 45, 'genre_id' => [1,6,8,11,14,17,19]],
         
-            ['option_id' => 46, 'genre_id' => []],
+            ['option_id' => 46, 'genre_id' => [2,7,10,15,18,16,20]],
         
-            ['option_id' => 47, 'genre_id' => []],
+            ['option_id' => 47, 'genre_id' => [3,4]],
         
-            ['option_id' => 48, 'genre_id' => []],
+            ['option_id' => 48, 'genre_id' => [9,12,13,5]],
         
-            ['option_id' => 49, 'genre_id' => []],
+            ['option_id' => 49, 'genre_id' => [2,7,10,11,12,13]],
         
-            ['option_id' => 50, 'genre_id' => []],
+            ['option_id' => 50, 'genre_id' => [9,14,15]],
         
-            ['option_id' => 51, 'genre_id' => []],
+            ['option_id' => 51, 'genre_id' => [1,4,5,16,20]],
         
-            ['option_id' => 52, 'genre_id' => []],
+            ['option_id' => 52, 'genre_id' => [3,6,8,17,18,19]],
         
-            ['option_id' => 53, 'genre_id' => []],
+            ['option_id' => 53, 'genre_id' => [2,5,8,10,20]],
         
-            ['option_id' => 54, 'genre_id' => []],
+            ['option_id' => 54, 'genre_id' => [3,7,11,17,18,16]],
         
-            ['option_id' => 55, 'genre_id' => []],
+            ['option_id' => 55, 'genre_id' => [1,6,13,14,15,19]],
         
-            ['option_id' => 56, 'genre_id' => []],
+            ['option_id' => 56, 'genre_id' => [4,9,12]],
         
-            ['option_id' => 57, 'genre_id' => []],
+            ['option_id' => 57, 'genre_id' => [2,6,7,8,10,17,18,20]],
         
-            ['option_id' => 58, 'genre_id' => []],
+            ['option_id' => 58, 'genre_id' => [3,4,11]],
         
-            ['option_id' => 59, 'genre_id' => []],
+            ['option_id' => 59, 'genre_id' => [1,5,9,19,14,15]],
         
-            ['option_id' => 60, 'genre_id' => []],
+            ['option_id' => 60, 'genre_id' => [12,13,16]],
         
-            ['option_id' => 61, 'genre_id' => []],
+            ['option_id' => 61, 'genre_id' => [2,6,7,8,14,18]],
         
-            ['option_id' => 62, 'genre_id' => []],
+            ['option_id' => 62, 'genre_id' => [3,4,10,11,17,20]],
         
-            ['option_id' => 63, 'genre_id' => []],
+            ['option_id' => 63, 'genre_id' => [1,5,16,19]],
         
-            ['option_id' => 64, 'genre_id' => []],
+            ['option_id' => 64, 'genre_id' => [9,12,13,15]],
         
-            ['option_id' => 65, 'genre_id' => []],
+            ['option_id' => 65, 'genre_id' => [2,6,8,14,17,19,20]],
         
-            ['option_id' => 66, 'genre_id' => []],
+            ['option_id' => 66, 'genre_id' => [1,4,7,11,5,16]],
 
-            ['option_id' => 67, 'genre_id' => []],
+            ['option_id' => 67, 'genre_id' => [3,10,15,18]],
 
-            ['option_id' => 68, 'genre_id' => []],
+            ['option_id' => 68, 'genre_id' => [9,12,13]],
 
-            ['option_id' => 69, 'genre_id' => []],
+            ['option_id' => 69, 'genre_id' => [2,7,3,6,8,14,17,18]],
 
-            ['option_id' => 70, 'genre_id' => []],
+            ['option_id' => 70, 'genre_id' => [15,19,20]],
 
-            ['option_id' => 71, 'genre_id' => []],
+            ['option_id' => 71, 'genre_id' => [4,10,11,13]],
 
-            ['option_id' => 72, 'genre_id' => []],
+            ['option_id' => 72, 'genre_id' => [1,5,9,12,16]],
 
-            ['option_id' => 73, 'genre_id' => []],
+            ['option_id' => 73, 'genre_id' => [1,5,9,20,14,15,18,6]],
 
-            ['option_id' => 74, 'genre_id' => []],
+            ['option_id' => 74, 'genre_id' => [8,10,2,7,19]],
 
-            ['option_id' => 75, 'genre_id' => []],
+            ['option_id' => 75, 'genre_id' => [4,11,3,17,16]],
 
-            ['option_id' => 76, 'genre_id' => []],
+            ['option_id' => 76, 'genre_id' => [12,13]],
 
-            ['option_id' => 77, 'genre_id' => []],
+            ['option_id' => 77, 'genre_id' => [1,5,9,20,14,15,18,6]],
 
-            ['option_id' => 78, 'genre_id' => []],
+            ['option_id' => 78, 'genre_id' => [2,3,7,8,10,17,19,16]],
 
-            ['option_id' => 79, 'genre_id' => []],
+            ['option_id' => 79, 'genre_id' => [12,13]],
 
-            ['option_id' => 80, 'genre_id' => []]
+            ['option_id' => 80, 'genre_id' => [4,11]]
         ];
 
         foreach($data as $d){

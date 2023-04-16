@@ -18,12 +18,25 @@
 
 
 
+.modal{
+    display: none;
+    position: absolute;
+    border: 1px solid black;
+    z-index: 1;
+    top: 30vh;
+    left: 9%;
+    background-color: white;
+    padding: 1rem;
+}
 
+.modal div{
+     margin-top: 2rem;
+}
 
-
-
-
-
+/* 
+.modalShow{
+    display: block;
+} */
 
 
 

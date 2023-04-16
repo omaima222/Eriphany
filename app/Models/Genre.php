@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Genre extends Model
 {
     use HasFactory;
-
+   
+    public $fillable=['genre'];
+    
     public function options(){
         return $this->belongsToMany(Option::class)->without('pivot');
     }

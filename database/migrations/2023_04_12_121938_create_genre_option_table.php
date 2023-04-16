@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('genre_option', function (Blueprint $table) {
             $table->unsignedBigInteger('option_id');
             $table->unsignedBigInteger('genre_id');
-            $table->foreign('genre_id')->references('id')->on('genres');
-            $table->foreign('option_id')->references('id')->on('options');
+            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade');
+            $table->foreign('option_id')->references('id')->on('options')->onDelete('cascade');
         });
     }
 

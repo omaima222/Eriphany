@@ -9,6 +9,9 @@ class Option extends Model
 {
     use HasFactory;
 
+    public $fillable=['option'];
+
+
     public function genres(){
         return $this->belongsToMany(Genre::class)->select(['id', 'genre'])->without('pivot');
     }

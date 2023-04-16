@@ -8,14 +8,19 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
+    public function getData(){
+        $genres = Genre::all();
+
+        return response()->json(['genres'=>$genres]);
+    }
+
+
     public function index()
     {
         $genres = Genre::all();
 
-        return response()->json(['genres'=>$genres]);
+        return view('dashboard.genres', compact('genres'));
     }
 
     /**
@@ -23,7 +28,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -31,7 +36,8 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Genre::create(['genre'=>$request->genre]);
+        return  "added succsess";
     }
 
     /**
@@ -55,7 +61,9 @@ class GenreController extends Controller
      */
     public function update(Request $request, genre $genre)
     {
-        //
+        $genre->update(['genre'=>$request->genre]);
+        return "updated success";
+
     }
 
     /**
@@ -63,6 +71,7 @@ class GenreController extends Controller
      */
     public function destroy(genre $genre)
     {
-        //
+        $genre->delete();
+        return "deleted success";
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\StaticsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,11 @@ Route::get('/', function(){
 });
 
 
-Route::get('/questions', [QuestionController::class, 'index'])->name('questions');
-Route::get('/genres', [GenreController::class, 'index'])->name('genres');
+Route::get('/questions', [QuestionController::class, 'getData'])->name('questions');
+Route::get('/genres', [GenreController::class, 'getData'])->name('genres');
+
+
+
+Route::resource('/genre', GenreController::class);
+Route::resource('/question', QuestionController::class);
+Route::get('/statics', [StaticsController::class, 'index']);
