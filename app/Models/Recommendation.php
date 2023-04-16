@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Recommendation extends Model
 {
     use HasFactory;
+ 
+    public $fillable = ['song_name','song', 'artist','genre_id'];
+
+    public function genre(){
+       return $this->belongsTo(Genre::class);
+    }
 }

@@ -14,4 +14,8 @@ class Genre extends Model
     public function options(){
         return $this->belongsToMany(Option::class)->without('pivot');
     }
+
+    public function recommendations(){
+        return $this->HasMany(Recommendation::class);
+    }
 }

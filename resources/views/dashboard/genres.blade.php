@@ -48,13 +48,12 @@
     let form = genreModal.querySelector('form');
 
     x.addEventListener('click', function(){
-        form.querySelector('input[name=genre]').value = '';
         genreModal.style.display="none"
     })
 
 
     addGenre.addEventListener('click', function(){
-       
+        form.querySelector('input[name=genre]').value = '';
         genreModal.style.display="block"
     })
 
