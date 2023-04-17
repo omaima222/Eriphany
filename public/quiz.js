@@ -42,26 +42,47 @@ function next(){
         nextButton.style.display="none"
     }
     else{
-        card.style.display='none'
-        nextButton.innerHTML="bye"
-        for(let v=0;v<genres.length;v++){
-            results.innerHTML+="<br>"+genres[v][0].genre +" = "+genres[v][0].points
-        }
-    }
-  
+        showResults()
+    }  
 }
 
 function countPoints(Q){
   for(i=0;i<Q.genres.length;i++){
     for(j=0;j<genres.length;j++){
-        if(Q.genres[i].genre==genres[j][0].genre) genres[j][0].points++
+        if(Q.genres[i].genre==genres[j].genre) genres[j].points++
     }
   }
+  console.log(genres[0].genre+' : '+genres[0].points)
+
 }
 
 
+function showResults(){
+    card.style.display='none'
+    nextButton.innerHTML="bye"
+  
+    for(let v=0;v<genres.length;v++){
+        results.innerHTML+="<br>"+genres[v].genre +" = "+genres[v].points
+    }
 
+    let maxPoints = Math.max(...genres.map((genre) => genre.points));
+    let topGenres = genres.filter((genre) => genre.points === maxPoints).map((genre) => genre.genre);
 
+    for(let i=0;i<topGenres.length;i++){
+        console.log(topGenres[i]);
+        for(let j=0;j<recommendations.length;j++){
+            console.log(recommendations[j].genre);
+            if(recommendations[j].genre == topGenres[i] ){
+               console.log(topGenres)
+               document.getElementById('genre').innerHTML = recommendations[j].genre
+               document.getElementById('song_name').innerHTML = recommendations[j].song_name
+               document.getElementById('artist').innerHTML = recommendations[j].artist
+            }
+        }
+    }
+
+    results.style.display = 'block'
+}
 
 for(let i=0;i<4;i++){
     options[i].addEventListener('click', function(){

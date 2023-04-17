@@ -5,6 +5,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\StaticsController;
 use App\Http\Controllers\RecommendationController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,15 +23,19 @@ Route::get('/quiz', function(){
 })->middleware('auth');
 
 
-Route::get('/questions', [QuestionController::class, 'getData'])->name('questions');
-Route::get('/genres', [GenreController::class, 'getData'])->name('genres');
+Route::get('/getQuestions', [QuestionController::class, 'getData'])->name('getQuestions');
+Route::get('/getGenres', [GenreController::class, 'getData'])->name('getGenres');
+Route::get('/getRecommendations', [RecommendationController::class, 'getData'])->name('getRecommendations');
 
 
 
 Route::resource('/genre', GenreController::class);
 Route::resource('/question', QuestionController::class);
 Route::resource('/recommendation', RecommendationController::class);
+Route::resource('/feedback', FeedbackController::class);
 Route::get('/statics', [StaticsController::class, 'index']);
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

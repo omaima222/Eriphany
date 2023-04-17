@@ -20,7 +20,12 @@
 
     <div>
         <h1>Users</h1>
-        <h2></h2>
+        <h2>{{$users_count}}</h2>
+    </div>
+
+    <div>
+        <h1>Feedbacks</h1>
+        <h2>{{$feedbacks_count}}</h2>
     </div>
 </body>
 </html>

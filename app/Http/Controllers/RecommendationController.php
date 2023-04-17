@@ -11,6 +11,13 @@ class RecommendationController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function getData()
+    {
+        $recommendations = Recommendation::with('genre')->get();
+        return response()->json(['recommendations'=>$recommendations]);
+    }
+
+
     public function index()
     {
         $recommendations = Recommendation::get();
@@ -63,7 +70,7 @@ class RecommendationController extends Controller
      */
     public function show(recommendation $recommendation)
     {
-        //
+      
     }
 
     /**

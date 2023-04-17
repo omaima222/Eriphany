@@ -12,7 +12,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        //
+        $feedbacks = Feedback::with('user')->get();
+        return view('dashboard.feedbacks', compact('feedbacks'));
     }
 
     /**
@@ -20,7 +21,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -28,7 +29,15 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Feedback::create([
+            'user_id' => Auth()->user()->id,
+            'note' => $request->note,
+            'ranking' => $request->ranking,
+            'song' => $request->song,
+            'artist' => $request->artist,
+        ]);
+
+        return          $request->song;
     }
 
     /**
@@ -52,7 +61,7 @@ class FeedbackController extends Controller
      */
     public function update(Request $request, Feedback $feedback)
     {
-        //
+
     }
 
     /**
@@ -60,6 +69,7 @@ class FeedbackController extends Controller
      */
     public function destroy(Feedback $feedback)
     {
-        //
+        $feedback->delete();
+        return "sucssesfulidelitid";
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Question;
 use App\Models\Genre;
+use App\Models\User;
+use App\Models\Feedback;
 
 class StaticsController extends Controller
 {
@@ -13,7 +15,9 @@ class StaticsController extends Controller
          
         $genres_count = Genre::count();
         $questions_count = Question::count();
+        $users_count = User::count();
+        $feedbacks_count = Feedback::count();
 
-        return view('dashboard.statics', compact('genres_count', 'questions_count'));
+        return view('dashboard.statics', compact('genres_count', 'questions_count','users_count','feedbacks_count'));
     }
 }
