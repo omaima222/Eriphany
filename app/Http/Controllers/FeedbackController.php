@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      */
     public function index()
@@ -29,18 +29,21 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        Feedback::create([
-            'user_id' => Auth()->user()->id,
-            'note' => $request->note,
-            'ranking' => $request->ranking,
-            'song' => $request->song,
-            'artist' => $request->artist,
-        ]);
+        // $feedback = Feedback::create([
+        //     'user_id' => Auth()->user()->id,
+        //     'note' => $request->note,
+        //     'ranking' => $request->ranking,
+        //     'song' => $request->song,
+        //     'artist' => $request->artist,
+        // ]);
 
-        return          $request->song;
+        // foreach($request->recommendations as $reco){
+        //     $feedback->recommendations()->attach($reco);
+        // }
+
+        return    $request->recommendations;
     }
-
-    /**
+  /**
      * Display the specified resource.
      */
     public function show(Feedback $feedback)

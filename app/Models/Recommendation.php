@@ -14,4 +14,8 @@ class Recommendation extends Model
     public function genre(){
        return $this->belongsTo(Genre::class);
     }
+
+    public function feedbacks(){
+        return $this->belongsToMany(Feedback::class);
+    }
 }

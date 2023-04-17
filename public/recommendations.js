@@ -8,6 +8,7 @@ $.ajax({
     success: function(data){
         for (var i = 0; i < data.recommendations.length; i++) { 
             recommendations.push({
+                'id' : data.recommendations[i].id,
                 'song' : data.recommendations[i].song,
                 'song_name' : data.recommendations[i].song_name,
                 'artist' : data.recommendations[i].artist,
@@ -17,4 +18,4 @@ $.ajax({
     }
 });
 
-// console.log(recommendations);
+console.log(recommendations);

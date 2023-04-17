@@ -21,7 +21,7 @@
             {{-- <audio class="recoAudio" src="audios/{{$recommendations[$i]->song}}audios/{{$recommendations[$i]->song}}"></audio>
             <button class="playButton" onclick="playAudio({{$i}})" >play</button> --}}
             <audio controls>
-                <source src="audios/{{$recommendations[$i]->song}}" type="audio/mpeg">
+                <source src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio>
             <button id="editReco" onclick="editreco({{$recommendations[$i]->id}}, {{$recommendations[$i]}} )">edit</button>
@@ -82,6 +82,12 @@
     })
  
     addReco.addEventListener('click', function(){
+        form.querySelector('button').innerHTML = "add";
+
+        form.action = '/recommendation';
+        if(form.querySelector('input[name=_method]')) form.querySelector('input[name=_method]').remove()
+        console.log(form.querySelector('input[name=_method]'))
+
         form.querySelector('input[name=song_name]').value = ''
         form.querySelector('input[name=artist]').value = ''
         options[0].selected = true

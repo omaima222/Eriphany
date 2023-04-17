@@ -40,14 +40,24 @@ class RecommendationController extends Controller
     {
    
         
-        Recommendation::create([
+        $recommendation = Recommendation::create([
             'song_name' => $request->song_name,
             'song' => $_FILES['song']['name'],
             'artist' => $request->artist,
             'genre_id' => $request->genre_id,
         ]);
         
-        $target_file = 'audios/'.$_FILES['song']['name'];
+
+        $file = 'audios/recommendations/'.$recommendation->genre->genre;
+        if(!file_exists($file)){
+            if(!mkdir($file, 0777, true)){ // Try creating directory with full permissions and recursive flag
+                // Handle error if mkdir() fails
+                echo "Failed to create directory: ".$file;
+                exit();
+            }
+        }
+
+        $target_file = $file.'/'.$_FILES['song']['name'];
         if(!file_exists($target_file)){
             if(is_uploaded_file($_FILES['song']['tmp_name'])){
                 $mime = mime_content_type($_FILES['song']['tmp_name']);

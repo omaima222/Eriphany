@@ -14,4 +14,8 @@ class Feedback extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function recommendations(){
+        return $this->belongsToMany(Recommendation::class);
+    }
 }

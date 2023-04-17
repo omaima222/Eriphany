@@ -31,10 +31,12 @@
         
     </body>
     <div id="results">
+
             <h1>YOUR RESULT</h1>
             <h3>genre :</h3><span id="genre"></span>
             <h3>song name :</h3><span id="song_name"></span>
             <h3>artist :</h3><span id="artist"></span>
+            
             <div >
                 <h1>HOWDY</h1><span><button id="x">x</button></span>
                 <form method="POST" action="{{route('feedback.store')}}" >
@@ -54,7 +56,8 @@
                     <div>
                         <label for="ranking">ranking</label>
                         <input type="text" name="ranking">
-                    </div>                
+                    </div>            
+                    <input type="text" name="recommendations[]" id="recommendations_results" hidden>    
                   <button>add</button>
                 </form>
             </div>

@@ -84,6 +84,12 @@
    let inputs = form.getElementsByTagName('input')
 
    addQuestion.addEventListener('click', function(){
+        form.querySelector('button').innerHTML = "add";
+
+        form.action = '/question';
+        if(form.querySelector('input[name=_method]')) form.querySelector('input[name=_method]').remove()
+        console.log(form.querySelector('input[name=_method]'))
+
         for(let i=0;i<inputs.length;i++){
             if(inputs[i].type!='hidden'){
                 if(inputs[i].type =='checkbox'){

@@ -12,7 +12,7 @@ class Genre extends Model
     public $fillable=['genre'];
     
     public function options(){
-        return $this->belongsToMany(Option::class)->without('pivot');
+        return $this->belongsToMany(Option::class);
     }
 
     public function recommendations(){

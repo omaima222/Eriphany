@@ -53,6 +53,12 @@
 
 
     addGenre.addEventListener('click', function(){
+        form.querySelector('button').innerHTML = "add";
+
+        form.action = '/genre';
+        if(form.querySelector('input[name=_method]')) form.querySelector('input[name=_method]').remove()
+        console.log(form.querySelector('input[name=_method]'))
+
         form.querySelector('input[name=genre]').value = '';
         genreModal.style.display="block"
     })

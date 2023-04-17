@@ -67,22 +67,35 @@ function showResults(){
 
     let maxPoints = Math.max(...genres.map((genre) => genre.points));
     let topGenres = genres.filter((genre) => genre.points === maxPoints).map((genre) => genre.genre);
-
+    let topGenreIds = genres.filter((genre) => topGenres.includes(genre.genre)).map((genre) => genres.indexOf(genre)+1);
+   
+    let form = results.querySelector('form');
     for(let i=0;i<topGenres.length;i++){
-        console.log(topGenres[i]);
+        let arr=[]
         for(let j=0;j<recommendations.length;j++){
-            console.log(recommendations[j].genre);
             if(recommendations[j].genre == topGenres[i] ){
-               console.log(topGenres)
-               document.getElementById('genre').innerHTML = recommendations[j].genre
-               document.getElementById('song_name').innerHTML = recommendations[j].song_name
-               document.getElementById('artist').innerHTML = recommendations[j].artist
+                arr.push(recommendations[j])
             }
         }
+        let ids=[]
+        let randomIndex = Math.floor(Math.random() * recommendations.length);
+        let randomReco = array[randomIndex];
+        document.getElementById('genre').innerHTML = recommendations[j].genre
+        document.getElementById('song_name').innerHTML = recommendations[j].song_name
+        document.getElementById('artist').innerHTML = recommendations[j].artist
+        ids.push(recommendations[j].id)
     }
+  
+
+    document.getElementById('recommendations_results').value = ids
+    console.log(topGenres)
+    console.log(topGenreIds)
+
+    console.log(document.getElementById('recommendations_results'));
 
     results.style.display = 'block'
 }
+
 
 for(let i=0;i<4;i++){
     options[i].addEventListener('click', function(){
