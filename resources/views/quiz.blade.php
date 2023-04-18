@@ -33,13 +33,12 @@
     <div id="results">
 
             <h1>YOUR RESULT</h1>
-            <h3>genre :</h3><span id="genre"></span>
-            <h3>song name :</h3><span id="song_name"></span>
-            <h3>artist :</h3><span id="artist"></span>
-            
+            <div id="recosInResults">
+
+            </div>
             <div >
                 <h1>HOWDY</h1><span><button id="x">x</button></span>
-                <form method="POST" action="{{route('feedback.store')}}" >
+                <form method="POST" action="{{route('feedback.store')}}" id="feedBackForm">
                   @csrf
                     <div>
                         <label for="song">song</label>
@@ -57,7 +56,7 @@
                         <label for="ranking">ranking</label>
                         <input type="text" name="ranking">
                     </div>            
-                    <input type="text" name="recommendations[]" id="recommendations_results" hidden>    
+                    {{-- <input type="text" name="recommendations[]" id="recommendations_results" hidden>     --}}
                   <button>add</button>
                 </form>
             </div>

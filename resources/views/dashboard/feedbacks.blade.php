@@ -18,7 +18,9 @@
              <br><span>song : {{$feedback->song}}</span>
              <br><span>artist :{{$feedback->artist}}</span>
              <br><span>ranking : {{$feedback->ranking}}</span>
-      
+             @foreach($feedback->recommendations as $reco)
+                    <br><span>recommendation : {{$reco->song_name}}</span>
+             @endforeach
             <form action="{{route('feedback.destroy', $feedback->id)}}" method="POST">
                 @csrf
                 @method("DELETE")

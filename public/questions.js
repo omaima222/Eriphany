@@ -6,7 +6,7 @@ $.ajax({
     dataType: 'json',
     async: false,
     success: function(data){
-        for (var i = 0; i < data.questions.length/4; i++) { 
+        for (var i = 0; i < data.questions.length; i++) { 
             let options = [];
             options.push({'option': data.questions[i].option1.option , 'genres' : data.questions[i].option1.genres})
             options.push({'option': data.questions[i].option2.option , 'genres' : data.questions[i].option2.genres})

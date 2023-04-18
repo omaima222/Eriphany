@@ -29,18 +29,18 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        // $feedback = Feedback::create([
-        //     'user_id' => Auth()->user()->id,
-        //     'note' => $request->note,
-        //     'ranking' => $request->ranking,
-        //     'song' => $request->song,
-        //     'artist' => $request->artist,
-        // ]);
+        $feedback = Feedback::create([
+            'user_id' => Auth()->user()->id,
+            'note' => $request->note,
+            'ranking' => $request->ranking,
+            'song' => $request->song,
+            'artist' => $request->artist,
+        ]);
 
-        // foreach($request->recommendations as $reco){
-        //     $feedback->recommendations()->attach($reco);
-        // }
-
+        foreach($request->recommendations as $reco){
+            $feedback->recommendations()->attach($reco);
+        }
+        
         return    $request->recommendations;
     }
   /**

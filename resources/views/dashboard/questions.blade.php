@@ -96,7 +96,6 @@
                   inputs[i].checked = false
                 }
                else inputs[i].value= " "
-
             }
         }
         questionModal.style.display = 'block'

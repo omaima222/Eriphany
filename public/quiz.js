@@ -67,33 +67,47 @@ function showResults(){
 
     let maxPoints = Math.max(...genres.map((genre) => genre.points));
     let topGenres = genres.filter((genre) => genre.points === maxPoints).map((genre) => genre.genre);
-    let topGenreIds = genres.filter((genre) => topGenres.includes(genre.genre)).map((genre) => genres.indexOf(genre)+1);
-   
-    let form = results.querySelector('form');
+    let recosInResults = document.getElementById('recosInResults');
+
     for(let i=0;i<topGenres.length;i++){
-        let arr=[]
+        let AllRecosInGenre=[]
         for(let j=0;j<recommendations.length;j++){
             if(recommendations[j].genre == topGenres[i] ){
-                arr.push(recommendations[j])
+                AllRecosInGenre.push(recommendations[j])
             }
         }
-        let ids=[]
-        let randomIndex = Math.floor(Math.random() * recommendations.length);
-        let randomReco = array[randomIndex];
-        document.getElementById('genre').innerHTML = recommendations[j].genre
-        document.getElementById('song_name').innerHTML = recommendations[j].song_name
-        document.getElementById('artist').innerHTML = recommendations[j].artist
-        ids.push(recommendations[j].id)
+        let randomIndex = Math.floor(Math.random() * AllRecosInGenre.length);
+        let randomReco = AllRecosInGenre[randomIndex];
+
+        let genre = document.createElement('h3')
+        genre.innerHTML = randomReco.genre
+        recosInResults.appendChild(genre)
+
+        let song = document.createElement('audio');
+        song.setAttribute('src', 'audios/recommendations/'+randomReco.genre+'/'+randomReco.song);
+        song.setAttribute('type', 'audio/mpeg');
+        song.setAttribute('controls', '');
+        recosInResults.appendChild(song);
+
+        let song_name = document.createElement('h3')
+        song_name.innerHTML = randomReco.song_name
+        recosInResults.appendChild(song_name)
+
+        let artist = document.createElement('h3')
+        artist.innerHTML = randomReco.artist
+        recosInResults.appendChild(artist)
+        console.log(randomReco)
+
+        let recoIdsArr = document.createElement('input');
+        recoIdsArr.setAttribute('type', 'hidden')
+        recoIdsArr.setAttribute('name', 'recommendations[]')
+        recoIdsArr.value = randomReco.id
+        document.getElementById('feedBackForm').appendChild(recoIdsArr)
+
     }
-  
-
-    document.getElementById('recommendations_results').value = ids
-    console.log(topGenres)
-    console.log(topGenreIds)
-
-    console.log(document.getElementById('recommendations_results'));
 
     results.style.display = 'block'
+
 }
 
 
