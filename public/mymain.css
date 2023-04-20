@@ -47,19 +47,20 @@
 
 
 
+.feedback{
+    background-color: white;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 1rem;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
+/* 
+.is-invalid{
+    border: 1px solid red;
+}
+class="@error('song') is-invalid  @enderror"  */
 
 
 

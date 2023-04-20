@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use App\Http\Requests\FeedbackRequest;
 
 class FeedbackController extends Controller
 {
@@ -13,7 +14,7 @@ class FeedbackController extends Controller
     public function index()
     {
         $feedbacks = Feedback::with('user')->get();
-        return view('dashboard.feedbacks', compact('feedbacks'));
+        return view('room.dashboard.feedbacks', compact('feedbacks'));
     }
 
     /**
@@ -27,7 +28,7 @@ class FeedbackController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FeedbackRequest $request)
     {
         $feedback = Feedback::create([
             'user_id' => Auth()->user()->id,
@@ -41,14 +42,15 @@ class FeedbackController extends Controller
             $feedback->recommendations()->attach($reco);
         }
         
-        return    $request->recommendations;
+        return   redirect('room');
     }
-  /**
+
+    /**
      * Display the specified resource.
      */
     public function show(Feedback $feedback)
     {
-        //
+        
     }
 
     /**
@@ -70,9 +72,10 @@ class FeedbackController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Feedback $feedback)
+    public function destroy($user, $id)
     {
+        $feedback = Feedback::find($id);
         $feedback->delete();
-        return "sucssesfulidelitid";
+        return   redirect('users/'.$user.'/feedbacks');
     }
 }

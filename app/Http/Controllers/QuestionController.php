@@ -6,6 +6,7 @@ use App\Models\Question;
 use App\Models\Genre;
 use App\Models\Option;
 use Illuminate\Http\Request;
+use App\Http\Requests\QuestionRequest;
 
 class QuestionController extends Controller
 {
@@ -21,7 +22,7 @@ class QuestionController extends Controller
     {
         $questions = Question::with(['option1.genres','option2.genres','option3.genres','option4.genres'])->get();
         $genres = Genre::all();
-        return view('dashboard.questions', compact('questions','genres'));
+        return view('room.dashboard.questions', compact('questions','genres'));
     }
 
 
@@ -30,7 +31,7 @@ class QuestionController extends Controller
     }
 
    
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
         Option::create(['option'=>$request->option1]);
         Option::create(['option'=>$request->option2]);
@@ -66,7 +67,7 @@ class QuestionController extends Controller
            'option4_id'=> $option4->id,
         ]);
 
-        return "succesesees";
+        return redirect('questions');
     }
 
    
@@ -82,7 +83,7 @@ class QuestionController extends Controller
     }
 
   
-    public function update(Request $request, Question $question)
+    public function update(QuestionRequest $request, Question $question)
     {
 
         
@@ -122,7 +123,7 @@ class QuestionController extends Controller
         }
 
 
-        return 'sucsessful update';
+        return redirect('questions');
 
     }
 
@@ -139,6 +140,7 @@ class QuestionController extends Controller
         $option3->delete();
         $option4->delete();
         $question->delete();
-        return 'sucsess';
+        return redirect('questions');
+
     }
 }

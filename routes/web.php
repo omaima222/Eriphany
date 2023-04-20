@@ -6,6 +6,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\StaticsController;
 use App\Http\Controllers\RecommendationController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,24 +19,48 @@ use App\Http\Controllers\FeedbackController;
 |
 */
 
-Route::get('/quiz', function(){
-     return view('quiz');
-})->middleware('auth');
 
 
+Route::get('/', function(){
+     return view('home');
+})->name('home');
+
+Route::get('/AboutUs', function(){
+     return view('aboutUs');
+})->name('AboutUs');
+
+
+
+// For Getting data with ajax
 Route::get('/getQuestions', [QuestionController::class, 'getData'])->name('getQuestions');
 Route::get('/getGenres', [GenreController::class, 'getData'])->name('getGenres');
 Route::get('/getRecommendations', [RecommendationController::class, 'getData'])->name('getRecommendations');
 
 
+// Dashboard 
+Route::resource('/genres', GenreController::class)->middleware(['auth','admin']);
+Route::resource('/questions', QuestionController::class)->middleware(['auth','admin']);
+Route::resource('/recommendations', RecommendationController::class)->middleware(['auth','admin']);
+Route::delete('/users/{user}/feedback/{id}', [FeedbackController::class, 'destroy'])->name('deleteFeedback')->middleware(['auth','admin']); // check it
+Route::get('/statics', [StaticsController::class, 'index'])->middleware(['auth','admin']);
+Route::get('/users', [UserController::class, 'index'])->middleware(['auth','admin']);
+Route::get('/users/{user}/feedbacks', [UserController::class, 'ThisUserFeedbacks'])->name('feedbacks')->middleware(['auth','admin']);
 
-Route::resource('/genre', GenreController::class);
-Route::resource('/question', QuestionController::class);
-Route::resource('/recommendation', RecommendationController::class);
-Route::resource('/feedback', FeedbackController::class);
-Route::get('/statics', [StaticsController::class, 'index']);
 
+
+// User
+Route::get('/MyFiles', [UserController::class, 'MyFiles'])->name('MyFiles')->middleware('auth');
+Route::delete('/deleteAccount/{user}', [UserController::class, 'deleteAccount'])->name('deleteAccount')->middleware('auth');
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// quiz
+Route::get('/quiz', function(){
+     return view('room.quiz.quiz');
+})->name('quiz')->middleware('auth');
+
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('postFeedback')->middleware('auth'); // check it
+
+Route::get('/room', function(){
+     return view('room.room');
+})->name('room')->middleware('auth');

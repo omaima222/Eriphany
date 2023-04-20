@@ -18,6 +18,6 @@ class StaticsController extends Controller
         $users_count = User::count();
         $feedbacks_count = Feedback::count();
 
-        return view('dashboard.statics', compact('genres_count', 'questions_count','users_count','feedbacks_count'));
+        return view('room.dashboard.statics', compact('genres_count', 'questions_count','users_count','feedbacks_count'));
     }
 }

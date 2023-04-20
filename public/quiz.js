@@ -19,9 +19,12 @@ function display(Q){
     question.innerHTML=Q.question
     for(let i=0;i<4;i++){
         if(Q.options[i].option.includes(".mp3")){
-            audios[i].setAttribute('src', "audios/"+Q.options[i].option)
+            audios[i].setAttribute('src', "audios/quiz/"+Q.options[i].option)
             options[i].innerHTML="play"
-        }else options[i].innerHTML=Q.options[i].option
+        }else{ 
+            options[i].innerHTML=Q.options[i].option
+            audios[i].setAttribute('src', "")
+        }
     }
 }
 
@@ -134,77 +137,4 @@ nextButton.addEventListener('click', next)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// let data = [
-//     {
-//         'question': "test test",
-//         'options':[
-//             "ach kayn",
-//             "ach wa93",
-//             "ach sari",
-//             "ach hada"
-//         ],
-//         'genres':[
-//             "jazz",
-//             "blues , new age , soft rock",
-//             "classicals, synthwave",
-//             "grunge, dream pop, disco"
-//         ]
-//     },
-//     {
-//         'question': "test teeeeeeet",
-//         'options':[
-//              "ach",
-//              "madra",
-//              "wach",
-//              "daz"
-//         ],
-//         'genres':[
-//             "dream pop, blues, classicals",
-//             "grunge, jazz, disco",
-//             "new age",
-//             "synthwave, soft rock"
-//         ]
-//     },
-//     {
-//         'question': "pliz",
-//         'options':[
-//             "p",
-//             "l",
-//             "i",
-//             "z"
-//        ],
-//        'genres':[
-//         "grunge, classicals",
-//         "dream pop, jazz, synthwave",
-//         "soft rock, disco , blues",
-//         "new age"
-//     ]
-//     },
-//     {
-//         'question': "mosik",
-//         'options':[
-//             "1.mp3",
-//             "2.mp3",
-//             "3.mp3",
-//             "4.mp3"
-//         ],
-//         'genres':[
-//             "new age, classicals",
-//             "dream pop, jazz, soft rock",
-//             "synthwave, grunge, blues",
-//             "disco "
-//         ]
-//     },
-// ]
 

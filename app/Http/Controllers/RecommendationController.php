@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Recommendation;
 use App\Models\Genre;
 use Illuminate\Http\Request;
+use App\Http\Requests\RecommendationRequest;
 
 class RecommendationController extends Controller
 {
@@ -22,7 +23,7 @@ class RecommendationController extends Controller
     {
         $recommendations = Recommendation::get();
         $genres = Genre::get();
-        return view('dashboard.recommendations', compact('recommendations', 'genres'));
+        return view('room.dashboard.recommendations', compact('recommendations', 'genres'));
     }
 
     /**
@@ -36,10 +37,15 @@ class RecommendationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RecommendationRequest $request)
     {
    
-        
+        $file = $request->file('song');
+        $mimeType = $file->getClientMimeType();
+        if(1<0){
+            return redirect()->back()->withErrors(['MP3'=>'Please wtf is this']);
+        }
+
         $recommendation = Recommendation::create([
             'song_name' => $request->song_name,
             'song' => $_FILES['song']['name'],
@@ -49,29 +55,19 @@ class RecommendationController extends Controller
         
 
         $file = 'audios/recommendations/'.$recommendation->genre->genre;
-        if(!file_exists($file)){
-            if(!mkdir($file, 0777, true)){ // Try creating directory with full permissions and recursive flag
-                // Handle error if mkdir() fails
-                echo "Failed to create directory: ".$file;
-                exit();
-            }
-        }
-
+ 
         $target_file = $file.'/'.$_FILES['song']['name'];
         if(!file_exists($target_file)){
             if(is_uploaded_file($_FILES['song']['tmp_name'])){
                 $mime = mime_content_type($_FILES['song']['tmp_name']);
                 if($mime=='audio/mpeg'){
-                    //  if($_FILES['song']['size'] <= 20971520){
                         move_uploaded_file($_FILES['song']['tmp_name'], $target_file);
-                    //  }
                 }
-    
             }
         }
     
 
-        return  "nice";
+        return  redirect('recommendations');
         
     }
 
@@ -94,29 +90,18 @@ class RecommendationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, recommendation $recommendation)
+    public function update(RecommendationRequest $request, recommendation $recommendation)
     {
         if($request->song){
-            
-            $file = 'audios/recommendations/'.$recommendation->genre->genre;
-            if(!file_exists($file)){
-                if(!mkdir($file, 0777, true)){ // Try creating directory with full permissions and recursive flag
-                    // Handle error if mkdir() fails
-                    echo "Failed to create directory: ".$file;
-                    exit();
-                }
-            }
     
+            $file = 'audios/recommendations/'.$recommendation->genre->genre;   
             $target_file = $file.'/'.$_FILES['song']['name'];
             if(!file_exists($target_file)){
                 if(is_uploaded_file($_FILES['song']['tmp_name'])){
                     $mime = mime_content_type($_FILES['song']['tmp_name']);
                     if($mime=='audio/mpeg'){
-                        //  if($_FILES['song']['size'] <= 20971520){
                             move_uploaded_file($_FILES['song']['tmp_name'], $target_file);
-                        //  }
                     }
-        
                 }
             }
 
@@ -131,7 +116,7 @@ class RecommendationController extends Controller
             'genre_id' => $request->genre_id,
         ]);
 
-        return 'suuuuuuuuuuuuuiiii';
+        return  redirect('recommendations');
 
     }
 
@@ -140,9 +125,8 @@ class RecommendationController extends Controller
      */
     public function destroy(recommendation $recommendation)
     {
-        unlink('audios/'.$recommendation->song);
+        unlink('audios/recommendations/'.$recommendation->genre->genre.'/'.$recommendation->song);
         $recommendation->delete();
-
-        return 'successss';
+        return  redirect('recommendations');
     }
 }
