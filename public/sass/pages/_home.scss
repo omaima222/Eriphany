@@ -1,0 +1,32 @@
+
+
+
+body{
+    background-image: url('images/night.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    // background-size: cover;
+}
+.home{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 30%;
+    left: 5%;
+    .homeMenu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        a{
+            margin-bottom: 5rem;
+            text-decoration: none;
+            text-align: left;
+             &:hover{
+               &::before{
+                 content: '■  ';
+               }
+             }
+         }
+    }
+}

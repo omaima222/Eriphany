@@ -1,0 +1,53 @@
+
+
+
+
+.AuthForm{
+    border: 1px solid black;
+    form{
+       padding: 1rem;
+       margin-left: 0.2rem;
+       margin-right: 0.2rem;
+       margin-bottom: 0.2rem;
+       border: 1px solid black;
+       button{
+            padding: 0.2rem;
+            border: 1px solid black;
+       }
+    }
+    .inputThing{
+        display: flex;
+        flex-direction: column;
+    }
+    input{
+        width: 14rem;
+        margin-bottom: 1rem;
+        padding: 0.3rem;
+    }
+}
+
+.formHead{
+    margin: 0.2rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .closeButton{
+        padding: 0;
+        border: 1px solid black;
+    }
+    h5{
+        padding-left: 0.2rem;
+    }
+}
+
+.forgotPss{
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+.formFooter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

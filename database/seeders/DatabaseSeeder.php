@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Recommendation;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,13 +21,19 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-             QuestionSeeder::class,
+          GenreSeeder::class,
         ]);
         $this->call([
-             OptionsSeeder::class,
+          OptionsSeeder::class,
         ]);
         $this->call([
-            GenreSeeder::class,
-       ]);
+          genreOptionseeder::class,
+        ]);
+        $this->call([
+          QuestionSeeder::class,
+        ]);
+        $this->call([
+          RecommendationsSeeder::class,
+        ]);
     }
 }

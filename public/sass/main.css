@@ -1,0 +1,88 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.AuthForm {
+  border: 1px solid black;
+}
+.AuthForm form {
+  padding: 1rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  margin-bottom: 0.2rem;
+  border: 1px solid black;
+}
+.AuthForm form button {
+  padding: 0.2rem;
+  border: 1px solid black;
+}
+.AuthForm .inputThing {
+  display: flex;
+  flex-direction: column;
+}
+.AuthForm input {
+  width: 14rem;
+  margin-bottom: 1rem;
+  padding: 0.3rem;
+}
+
+.formHead {
+  margin: 0.2rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.formHead .closeButton {
+  padding: 0;
+  border: 1px solid black;
+}
+.formHead h5 {
+  padding-left: 0.2rem;
+}
+
+.forgotPss {
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  background-image: url("images/night.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.home {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 30%;
+  left: 5%;
+}
+.home .homeMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home .homeMenu a {
+  margin-bottom: 5rem;
+  text-decoration: none;
+  text-align: left;
+}
+.home .homeMenu a:hover::before {
+  content: "■  ";
+}

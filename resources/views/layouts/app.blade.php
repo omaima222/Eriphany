@@ -9,12 +9,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="{{url('sass/main.css')}}">
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     
 </head>
 <body>
-                        @guest
+                        {{-- @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -30,12 +31,14 @@
                                 <a>
                                     {{ Auth::user()->name }}
                                 </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
+                                        <button>logout</button>
                                     </form>
                         @endguest
                     </ul>
-                </div>
+                </div> --}}
         <main>
             @yield('content')
         </main>
