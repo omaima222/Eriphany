@@ -1,37 +1,9 @@
 
 
 
-.card{
-   margin-top:10rem;
-   margin-left:10rem;
-}
-
-#next{
-    margin-top: 3rem;
-    margin-left: 21rem;
-    display: none;
-}
-
-.choice{
-    background-color: rgb(167, 255, 159);
-}
 
 
 
-.modal{
-    display: none;
-    position: absolute;
-    border: 1px solid black;
-    z-index: 1;
-    top: 30vh;
-    left: 9%;
-    background-color: white;
-    padding: 1rem;
-}
-
-.modal div{
-     margin-top: 2rem;
-}
 
 
 #results{
@@ -45,14 +17,6 @@
     padding: 1rem;
 }
 
-
-
-.feedback{
-    background-color: white;
-    border: 1px solid black;
-    padding: 1rem;
-    margin: 1rem;
-}
 
 
 

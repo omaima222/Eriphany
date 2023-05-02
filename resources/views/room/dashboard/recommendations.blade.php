@@ -18,24 +18,28 @@
     @if ($errors->has('MP3'))
          <div style="background: red">{{ $errors->first('MP3') }}</div>
     @endif
-
+    @php
+       $j=-1
+    @endphp
     @foreach ( $genres as $genre )
        <div style="border: 1px solid black; padding:1rem;">
            <h1>{{$genre->genre}}</h1>
-
            @for( $i=0;$i<count($recommendations);$i++)
              @if($recommendations[$i]->genre == $genre)
                 <div>
+                    @php
+                       $j++
+                    @endphp 
                     <span>{{$recommendations[$i]->song_name}}</span>
                     <span>{{$recommendations[$i]->artist}}</span>
                     <span>{{$recommendations[$i]->genre->genre}}</span>
                     <audio class="recoAudio" src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}"></audio>
-                    <button class="playButton" onclick="playAudio({{$i}})" >play</button>
+                    <button class="playButton" onclick="playAudio({{$j}})" >play</button>
                     {{-- <audio controls>
                         <source src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio> --}}
-                    <button id="editReco" onclick="editreco({{$recommendations[$i]->id}}, {{$recommendations[$i]}} )">edit</button>
+                    <button id="editReco" onclick="editreco({{$recommendations[$i]->id}}, {{$recommendations[$i]}})">edit</button>
                     <form action="{{route('recommendations.destroy', $recommendations[$i]->id)}}" method="POST">
                         @csrf
                         @method("DELETE")

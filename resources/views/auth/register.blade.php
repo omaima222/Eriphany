@@ -3,7 +3,7 @@
 @section('content')
 <div class="home">
 
-                <div class="AuthForm">
+                <div class="aForm">
                     <div class="formHead">
                         <h5>Register</h5>
                         <a href="{{route('home')}}"><button class="closeButton">&nbsp;x&nbsp;</button></a>
