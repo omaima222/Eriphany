@@ -4,29 +4,55 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="stylesheet" href={{url('mymain.css')}}>
+    <link rel="stylesheet" href={{url('sass/main.css')}}>
     <title>Document</title>
 </head>
-<body>
-
-    <h1>feedbacks</h1>
-    @foreach( $feedbacks as $feedback )
-
-        <div>
-            <h2>{{$feedback->user->name}}</h2>
-            <h4>{{$feedback->user->email}}</h4>
-             <br><span>song : {{$feedback->song}}</span>
-             <br><span>artist :{{$feedback->artist}}</span>
-             <br><span>ranking : {{$feedback->ranking}}</span>
-             @foreach($feedback->recommendations as $reco)
-                    <br><span>recommendation : {{$reco->song_name}}</span>   
-             @endforeach
-            <form action="{{route('deleteFeedback', [$feedback->user->id,$feedback->id])}}" method="POST">
-                @csrf
-                @method("DELETE")
-                <button>delete</button>
-            </form>
+<body class="feedbacksBody">
+    <div class="theWholeThing">
+        <div class="theHeader">
+            <h1>Feedbacks<span>.eri</span></h1>
+            <div class="buttons">
+                <button style="cursor: not-allowed">&nbsp;&#9888&nbsp;</button>
+               <button>&nbsp;—&nbsp;</button>
+               <a href="{{route('dashboard')}}"><button class="closeButton">&nbsp;&#x2715&nbsp;</button></a>
+            </div>
         </div>
+        <div class="theContent">
+            <div class="feedbacksDiv">
+                    @foreach( $feedbacks as $feedback )
+                        <div class="feedbackDiv">
+                            <div class="info">
+                                <p>Taken at : </p><span>{{$feedback->created_at->format('M j/ Y . g:i a')}}</span>
+                            </div>
+                            <div class="info">
+                            <p>song : </p><span>{{$feedback->song}}</span>
+                            </div>
+                            <div class="info">
+                            <p>artist : </p><span>{{$feedback->artist}}</span>
+                            </div>
+                            <div class="info">
+                            <p>ranking : </p><span>{{$feedback->ranking}}</span>
+                            </div>
+                            <div class="petiteRecos">
+                                <h4>Recommendations</h4>
+                                @foreach($feedback->recommendations as $reco)
+                                    <div class="petiteReco">
+                                        <img  src="{{url('sass/images/petiteReco.jpg')}}" alt="">
+                                        <span>{{$reco->song_name}}</span>
+                                        <span>By:{{$reco->artist}}</span>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="buttons">
+                                <form action="{{route('deleteFeedback', [$feedback->user->id,$feedback->id])}}" method="POST">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button onclick="alert('sure?')"><img src="{{url('sass/images/trash.png')}}" alt=""></button>
+                                </form>
+                            </div>
+                        </div>
 
-    @endforeach
+                    @endforeach
+            </div>
+        </div>
 </body>
