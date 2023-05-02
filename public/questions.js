@@ -21,3 +21,4 @@ $.ajax({
 });
 
 // console.log(questions[0].options[0])
+console.log(document.querySelectorAll('input'));

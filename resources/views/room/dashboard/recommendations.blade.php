@@ -18,23 +18,23 @@
     @if ($errors->has('MP3'))
          <div style="background: red">{{ $errors->first('MP3') }}</div>
     @endif
-
+    @php  $d=-1  @endphp
     @foreach ( $genres as $genre )
        <div style="border: 1px solid black; padding:1rem;">
            <h1>{{$genre->genre}}</h1>
-
-           @for( $i=0;$i<count($recommendations);$i++)
-             @if($recommendations[$i]->genre == $genre)
+        @for( $i=0;$i<count($recommendations);$i++)
+            @if($recommendations[$i]->genre == $genre)
+            @php  $d++ @endphp
                 <div>
                     <span>{{$recommendations[$i]->song_name}}</span>
                     <span>{{$recommendations[$i]->artist}}</span>
                     <span>{{$recommendations[$i]->genre->genre}}</span>
                     <audio class="recoAudio" src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}"></audio>
-                    <button class="playButton" onclick="playAudio({{$i}})" >play</button>
-                    {{-- <audio controls>
+                    <button class="playButton" onclick="playAudio({{$d}})" >play</button>
+                    <audio controls>
                         <source src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}" type="audio/mpeg">
                         Your browser does not support the audio element.
-                    </audio> --}}
+                    </audio>
                     <button id="editReco" onclick="editreco({{$recommendations[$i]->id}}, {{$recommendations[$i]}} )">edit</button>
                     <form action="{{route('recommendations.destroy', $recommendations[$i]->id)}}" method="POST">
                         @csrf
@@ -115,7 +115,7 @@
             for(let j=0;j<recoAudio.length;j++){
                 recoAudio[j].pause()
                 playButton[j].innerHTML = 'play'
-            }
+            } 
             playButton[i].innerHTML = 'pause'
             recoAudio[i].play()
         }else{
@@ -147,5 +147,5 @@
         recoModal.style.display="block"
         console.log();
     }
-
+   
 </script>
