@@ -1,0 +1,23 @@
+
+.quizBody{
+    background-image: url('images/quiz.png');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover; 
+    background-color: black;
+}
+
+.card{
+        
+}
+
+#next{
+    margin-top: 3rem;
+    margin-left: 21rem;
+    display: none;
+}
+
+.choice{
+    background-color: rgb(167, 255, 159);
+}
+

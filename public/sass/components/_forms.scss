@@ -2,43 +2,67 @@
 
 
 
-.AuthForm{
+.aForm{
     border: 1px solid black;
+    box-shadow:  3px 3px 0px 0px rgba(0, 0, 0, 0.596);
+    button{
+        cursor: pointer;
+        border: 1px solid black;
+        box-shadow:   1px 1px 0px 0px rgba(0, 0, 0, 0.61),
+                    inset  2px 2px 0px 0px rgb(255, 255, 255);
+    }
     form{
        padding: 1rem;
        margin-left: 0.2rem;
        margin-right: 0.2rem;
        margin-bottom: 0.2rem;
        border: 1px solid black;
-       button{
-            padding: 0.2rem;
-            border: 1px solid black;
-       }
+       box-shadow: inset  3px 3px 0px 0px rgba(0, 0, 0, 0.596);
     }
     .inputThing{
         display: flex;
         flex-direction: column;
     }
-    input{
+    label{
+        margin-bottom: 0.3rem;
+        font-family: 'VT323';
+        font-size: 1.2rem;
+    }
+    input:not([type="checkbox"]){
         width: 14rem;
         margin-bottom: 1rem;
         padding: 0.3rem;
+        border-radius: 3px;
+        font-family: 'Anonymous Pro' !important;
+        font-size: 1rem;
+        border: 2px solid black;
+    }
+    select{
+        width: 14rem;
+        margin-bottom: 1rem;
+        padding: 0.3rem;
+        border-radius: 3px;
+        font-family: 'Anonymous Pro' !important;
+        font-size: 1rem;
     }
 }
 
 .formHead{
-    margin: 0.2rem;
-    margin-top: 0.4rem;
-    margin-bottom: 0.4rem;
+    padding: 0.2rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .closeButton{
-        padding: 0;
-        border: 1px solid black;
+    button{
+        width: 25px;
+        height: 20px;
     }
     h5{
         padding-left: 0.2rem;
+        font-family: 'Press Start 2P';
+        text-shadow: 2px 1px 0px black;
+
     }
 }
 
@@ -48,6 +72,15 @@
 }
 .formFooter{
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
+    button{
+        padding: 0.3rem 1rem 0.3rem 1rem;
+        font-family: 'Press Start 2P';
+        font-size: 1rem;
+        &:active{
+            box-shadow: inset  -2px -2px 0px 0px rgb(255, 255, 255),
+            inset  2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+        }
+    }
 }

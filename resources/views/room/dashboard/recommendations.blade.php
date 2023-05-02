@@ -7,65 +7,83 @@
     <link rel="stylesheet" href="https://parsleyjs.org/src/parsley.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script defer src="https://parsleyjs.org/dist/parsley.min.js"></script>
-    <link rel="stylesheet" href={{url('mymain.css')}}>
+    <link rel="stylesheet" href={{url('sass/main.css')}}>
     <title>Document</title>
 </head>
-<body>
-
-    
-    <button id="addReco">Add</button>
-    <h1>recommendations</h1>
-    @if ($errors->has('MP3'))
-         <div style="background: red">{{ $errors->first('MP3') }}</div>
-    @endif
-    @php  $d=-1  @endphp
-    @foreach ( $genres as $genre )
-       <div style="border: 1px solid black; padding:1rem;">
-           <h1>{{$genre->genre}}</h1>
-        @for( $i=0;$i<count($recommendations);$i++)
-            @if($recommendations[$i]->genre == $genre)
-            @php  $d++ @endphp
-                <div>
-                    <span>{{$recommendations[$i]->song_name}}</span>
-                    <span>{{$recommendations[$i]->artist}}</span>
-                    <span>{{$recommendations[$i]->genre->genre}}</span>
-                    <audio class="recoAudio" src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}"></audio>
-                    <button class="playButton" onclick="playAudio({{$d}})" >play</button>
-                    <audio controls>
-                        <source src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button id="editReco" onclick="editreco({{$recommendations[$i]->id}}, {{$recommendations[$i]}} )">edit</button>
-                    <form action="{{route('recommendations.destroy', $recommendations[$i]->id)}}" method="POST">
-                        @csrf
-                        @method("DELETE")
-                        <button>delete</button>
-                    </form>
+<body class="recomBody">
+    <div class="theWholeThing">
+        <div class="theHeader">
+            <h1>Recommendations<span>.eri</span></h1>
+            <div class="buttons">
+                <button style="cursor: not-allowed">&nbsp;&#9888&nbsp;</button>
+               <button>&nbsp;—&nbsp;</button>
+               <a href="{{route('dashboard')}}"><button class="closeButton">&nbsp;&#x2715&nbsp;</button></a>
+            </div>
+        </div>
+        <div class="theContent">
+            <button id="addReco">+ Add</button>
+            @php
+            $j=-1
+            @endphp
+            <div class="recoGenresDiv">
+                    @foreach ( $genres as $genre )
+                    <div class="recoGenreDiv" style="border: 1px solid black; padding:1rem;">
+                        <h1>{{$genre->genre}}</h1>
+                        <div class="recosDiv">
+                            @for( $i=0;$i<count($recommendations);$i++)
+                                @if($recommendations[$i]->genre == $genre)
+                                    <div class="recoDiv">
+                                        @php
+                                        $j++
+                                        @endphp 
+                                        <img  class="recoImg" src="{{url('sass/images/reco.jpg')}}" alt="">
+                                        <span>{{$recommendations[$i]->song_name}}</span>
+                                        <span>By:{{$recommendations[$i]->artist}}</span>
+                                        {{-- <span>{{$recommendations[$i]->genre->genre}}</span> --}}
+                                        <audio class="recoAudio" src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}"></audio>
+                                        <button class="playButton" onclick="playAudio({{$j}})">play</button>
+                                        {{-- <audio controls>
+                                            <source src="audios/recommendations/{{$recommendations[$i]->genre->genre}}/{{$recommendations[$i]->song}}" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio> --}}
+                                        <div class="buttons">
+                                            <button title="Edit"  id="editReco" onclick="editreco({{$recommendations[$i]->id}}, {{$recommendations[$i]}})"><img src="{{url('sass/images/edit.png')}}" alt=""></button>
+                                            <form action="{{route('recommendations.destroy', $recommendations[$i]->id)}}" method="POST">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button  title="Delete"  onclick="alert('do you really want to delete this element ?')"><img src="{{url('sass/images/trash.png')}}" alt=""></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endfor
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
-            @endif
-        @endfor
-       </div>
-    @endforeach
   
 
 
-    <div id="recommendationModal" class="modal">
-        <h1>HOWDY</h1><span><button id="x">x</button></span>
+    <div id="recommendationModal" class="aForm recoForm">
+        <div class="formHead">
+            <h5>Add recommendation</h5>
+            <button id="x">&nbsp;&#x2715&nbsp;</button>
+        </div>    
         <form method="POST" action="{{route('recommendations.store')}}"  enctype="multipart/form-data" data-parsley-validate>
           @csrf
-          <div>
+          <div class="inputThing">
             <label for="song_name">song name</label>
             <input name="song_name" type="text" data-parsley-trigger="keyup"  data-parsley-maxlength="50" required>
           </div>
-          <div>
+          <div class="inputThing">
             <label for="song">song</label>
             <input type="file" name="song" data-parsley-trigger="keyup" data-parsley-filetype="audio/mp3" required>
           </div>
-          <div>
+          <div class="inputThing">
             <label for="artist">artist</label>
             <input name="artist" type="text" data-parsley-trigger="keyup"  data-parsley-maxlength="50" required>
           </div>
-          <div>
+          <div class="inputThing">
             <label for="genre">genre</label>
             <select name="genre_id" required>
                 <option value='' selected disabled>choose genre</option>
@@ -75,8 +93,9 @@
             </select>
           </div>
           
-          
-          <button>add</button>
+          <div class="formFooter">
+             <button>add</button>
+        </div>
         </form>
     </div>
 

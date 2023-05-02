@@ -10,9 +10,10 @@
         <script defer src="https://parsleyjs.org/dist/parsley.min.js"></script>
         <!-- Styles -->
         <link rel="stylesheet" href={{url('mymain.css')}}>
+        <link rel="stylesheet" href={{url('sass/main.css')}}>
     
     </head>
-    <body>
+    <body class="quizBody">
         <div></div>
         <div class="card" id="card">
             <h1 class="question" id="question">question</h1>

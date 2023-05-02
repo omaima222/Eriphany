@@ -42,10 +42,12 @@ Route::resource('/genres', GenreController::class)->middleware(['auth','admin'])
 Route::resource('/questions', QuestionController::class)->middleware(['auth','admin']);
 Route::resource('/recommendations', RecommendationController::class)->middleware(['auth','admin']);
 Route::delete('/users/{user}/feedback/{id}', [FeedbackController::class, 'destroy'])->name('deleteFeedback')->middleware(['auth','admin']); // check it
-Route::get('/statics', [StaticsController::class, 'index'])->middleware(['auth','admin']);
-Route::get('/users', [UserController::class, 'index'])->middleware(['auth','admin']);
+Route::get('/statics', [StaticsController::class, 'index'])->middleware(['auth','admin'])->name('statics');
+Route::get('/users', [UserController::class, 'index'])->middleware(['auth','admin'])->name('users');
 Route::get('/users/{user}/feedbacks', [UserController::class, 'ThisUserFeedbacks'])->name('feedbacks')->middleware(['auth','admin']);
-
+Route::get('/dashboard', function(){
+     return view('room.dashboard.dashboard');
+})->name('dashboard')->middleware(['auth','admin']);
 
 
 // User

@@ -1,0 +1,139 @@
+
+.genresBody{
+    background-color: #9d63ff;
+    margin: 1rem;
+    .theWholeThing{
+        border: 2px solid black;
+        background-color: #1da676;
+        box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.61),
+    }
+    .theHeader{
+        background-color: #1e8a64;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .buttons{
+            display: flex;
+            button{
+                margin-left: 0.5rem;
+                cursor: pointer;
+                border: 1px solid black;
+                width: 35px;
+                height: 20px;
+                background-color: #fdffa0;
+                box-shadow:   2px 2px 0px 0px rgba(0, 0, 0, 0.61),
+                            inset  2px 2px 0px 0px rgb(255, 255, 255);
+                &:active{
+                    box-shadow: inset  -2px -2px 0px 0px rgb(255, 255, 255),
+                    inset  2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+                }
+            } 
+        }
+        h1{
+            margin-left: 1rem;
+            font-family: 'Anonymous Pro', monospace;
+            font-size: 1rem;
+            color: #fdffa0;
+            letter-spacing: 0.1rem;
+            span{      
+                font-size: 0.7rem;
+            }
+        }
+    }
+    .theContent{
+        background-color: #f1d0f5;
+        border: 2px solid black;
+        padding: 1rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        box-shadow: inset  10px 10px 0px 0px rgba(0, 0, 0, 0.486) ;
+    }
+}
+
+.genreDiv{
+    height: 40px;
+    width: 100%;
+    margin: 1rem;
+    background-color: #fffabb;
+    z-index: 1;
+    padding: 1rem;
+    flex-basis: 15%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-radius: 0.5rem;
+    border: 4px solid #1e8a64;
+    box-shadow: inset 0px 10px 0px 0px #1da676,
+                4px 4px 0px 0px rgba(0, 0, 0, 0.795);
+
+    span{
+        font-family: 'VT323';
+        font-size: 23px;
+    }
+    .buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button{
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+            img{
+                width: 20px;
+            }
+        }
+    }
+}
+
+.genresDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+#addGenre{
+    font-family: 'Press Start 2P';
+    color: #f9fac6;
+    background-color: #1e8a64;
+    margin: 1rem;
+    padding: 0.6rem;
+    cursor: pointer;
+    border: none;
+    box-shadow: inset  -3px -3px 0px 0px rgba(0, 0, 0, 0.61),
+                inset  3px 3px 0px 0px rgb(255, 255, 255);
+    &:active{
+        box-shadow: inset  -3px -3px 0px 0px rgb(255, 255, 255),
+        inset  3px 3px 0px 0px rgba(0, 0, 0, 0.61);
+    }
+}
+
+.genreForm{
+    h5{
+        color: #fbfcda;
+        font-size: 1rem;
+    }
+    .formHead{
+        background-color: #563174;
+    }
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    z-index: 1;
+    background-color: #734797;
+    form{
+      background-color: #b3e4b7;
+    }
+    button{
+        background-color: #fdffa0;
+    }
+}

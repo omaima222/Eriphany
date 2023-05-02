@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -8,44 +11,66 @@ body {
   box-sizing: border-box;
 }
 
-.AuthForm {
+.aForm {
   border: 1px solid black;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.596);
 }
-.AuthForm form {
+.aForm button {
+  cursor: pointer;
+  border: 1px solid black;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.61), inset 2px 2px 0px 0px rgb(255, 255, 255);
+}
+.aForm form {
   padding: 1rem;
   margin-left: 0.2rem;
   margin-right: 0.2rem;
   margin-bottom: 0.2rem;
   border: 1px solid black;
+  box-shadow: inset 3px 3px 0px 0px rgba(0, 0, 0, 0.596);
 }
-.AuthForm form button {
-  padding: 0.2rem;
-  border: 1px solid black;
-}
-.AuthForm .inputThing {
+.aForm .inputThing {
   display: flex;
   flex-direction: column;
 }
-.AuthForm input {
+.aForm label {
+  margin-bottom: 0.3rem;
+  font-family: "VT323";
+  font-size: 1.2rem;
+}
+.aForm input:not([type=checkbox]) {
   width: 14rem;
   margin-bottom: 1rem;
   padding: 0.3rem;
+  border-radius: 3px;
+  font-family: "Anonymous Pro" !important;
+  font-size: 1rem;
+  border: 2px solid black;
+}
+.aForm select {
+  width: 14rem;
+  margin-bottom: 1rem;
+  padding: 0.3rem;
+  border-radius: 3px;
+  font-family: "Anonymous Pro" !important;
+  font-size: 1rem;
 }
 
 .formHead {
-  margin: 0.2rem;
-  margin-top: 0.4rem;
-  margin-bottom: 0.4rem;
+  padding: 0.2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.formHead .closeButton {
-  padding: 0;
-  border: 1px solid black;
+.formHead button {
+  width: 25px;
+  height: 20px;
 }
 .formHead h5 {
   padding-left: 0.2rem;
+  font-family: "Press Start 2P";
+  text-shadow: 2px 1px 0px black;
 }
 
 .forgotPss {
@@ -55,16 +80,16 @@ body {
 
 .formFooter {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
 }
-
-body {
-  background-image: url("images/night.png");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.formFooter button {
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  font-family: "Press Start 2P";
+  font-size: 1rem;
+}
+.formFooter button:active {
+  box-shadow: inset -2px -2px 0px 0px rgb(255, 255, 255), inset 2px 2px 0px 0px rgba(0, 0, 0, 0.61);
 }
 
 .home {
@@ -88,3 +113,892 @@ body {
 .home .homeMenu a:hover::before {
   content: "■  ";
 }
+
+.roomBody {
+  background-image: url("images/roomnk.png");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black;
+}
+.roomBody button {
+  position: absolute;
+  padding: 0.5rem;
+  background: rgb(241, 216, 255);
+  border: 5px groove rgb(82, 36, 104);
+}
+
+.FilesButton {
+  top: 5%;
+  left: 20%;
+  position: fixed;
+}
+
+.DashButton {
+  top: 13%;
+  left: 49%;
+  position: fixed;
+}
+
+.PlayButton {
+  top: 13%;
+  left: 10%;
+  position: fixed;
+}
+
+.quizBody {
+  background-image: url("images/quiz.png");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black;
+}
+
+#next {
+  margin-top: 3rem;
+  margin-left: 21rem;
+  display: none;
+}
+
+.choice {
+  background-color: rgb(167, 255, 159);
+}
+
+.screenButtonDiv {
+  width: 70px;
+  height: 70px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+}
+.screenButtonDiv:hover {
+  background-color: rgba(153, 207, 207, 0.329);
+  border: 1px solid rgb(77, 209, 209);
+}
+
+.dashboardBody {
+  background-image: url("images/dashboard.png");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+.dashboardBody button {
+  cursor: pointer;
+  padding: 0.2rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.dashboardBody button img {
+  width: 40px;
+  height: auto;
+}
+
+.dashboardScreen {
+  position: absolute;
+  top: 35%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+.dashboardScreen span {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 1rem;
+  color: rgb(76, 19, 99);
+}
+
+.genresBody {
+  background-color: #9d63ff;
+  margin: 1rem;
+}
+.genresBody .theWholeThing {
+  border: 2px solid black;
+  background-color: #1da676;
+  box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.61);
+}
+.genresBody .theHeader {
+  background-color: #1e8a64;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.genresBody .theHeader .buttons {
+  display: flex;
+}
+.genresBody .theHeader .buttons button {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 35px;
+  height: 20px;
+  background-color: #fdffa0;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.61), inset 2px 2px 0px 0px rgb(255, 255, 255);
+}
+.genresBody .theHeader .buttons button:active {
+  box-shadow: inset -2px -2px 0px 0px rgb(255, 255, 255), inset 2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.genresBody .theHeader h1 {
+  margin-left: 1rem;
+  font-family: "Anonymous Pro", monospace;
+  font-size: 1rem;
+  color: #fdffa0;
+  letter-spacing: 0.1rem;
+}
+.genresBody .theHeader h1 span {
+  font-size: 0.7rem;
+}
+.genresBody .theContent {
+  background-color: #f1d0f5;
+  border: 2px solid black;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: inset 10px 10px 0px 0px rgba(0, 0, 0, 0.486);
+}
+
+.genreDiv {
+  height: 40px;
+  width: 100%;
+  margin: 1rem;
+  background-color: #fffabb;
+  z-index: 1;
+  padding: 1rem;
+  flex-basis: 15%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 0.5rem;
+  border: 4px solid #1e8a64;
+  box-shadow: inset 0px 10px 0px 0px #1da676, 4px 4px 0px 0px rgba(0, 0, 0, 0.795);
+}
+.genreDiv span {
+  font-family: "VT323";
+  font-size: 23px;
+}
+.genreDiv .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.genreDiv .buttons button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+.genreDiv .buttons button img {
+  width: 20px;
+}
+
+.genresDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#addGenre {
+  font-family: "Press Start 2P";
+  color: #f9fac6;
+  background-color: #1e8a64;
+  margin: 1rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.61), inset 3px 3px 0px 0px rgb(255, 255, 255);
+}
+#addGenre:active {
+  box-shadow: inset -3px -3px 0px 0px rgb(255, 255, 255), inset 3px 3px 0px 0px rgba(0, 0, 0, 0.61);
+}
+
+.genreForm {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  z-index: 1;
+  background-color: #734797;
+}
+.genreForm h5 {
+  color: #fbfcda;
+  font-size: 1rem;
+}
+.genreForm .formHead {
+  background-color: #563174;
+}
+.genreForm form {
+  background-color: #b3e4b7;
+}
+.genreForm button {
+  background-color: #fdffa0;
+}
+
+.questionsBody {
+  background-color: #9d63ff;
+  margin: 1rem;
+}
+.questionsBody .theWholeThing {
+  border: 2px solid black;
+  background-color: #ffa6ff;
+  box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.61);
+}
+.questionsBody .theHeader {
+  background-color: #e991d3;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.questionsBody .theHeader .buttons {
+  display: flex;
+}
+.questionsBody .theHeader .buttons button {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 35px;
+  height: 20px;
+  background-color: #ec8d8d;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.61), inset 2px 2px 0px 0px rgb(255, 255, 255);
+}
+.questionsBody .theHeader .buttons button:active {
+  box-shadow: inset -2px -2px 0px 0px rgb(255, 255, 255), inset 2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.questionsBody .theHeader h1 {
+  margin-left: 1rem;
+  font-family: "Anonymous Pro", monospace;
+  font-size: 1rem;
+  color: black;
+  letter-spacing: 0.1rem;
+}
+.questionsBody .theHeader h1 span {
+  font-size: 0.7rem;
+}
+.questionsBody .theContent {
+  background-color: #bfd2f7;
+  border: 2px solid black;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: inset 10px 10px 0px 0px rgba(0, 0, 0, 0.486);
+}
+
+.questionDev {
+  margin: 1rem;
+  background-color: #fae1e1;
+  z-index: 1;
+  padding: 1rem;
+  flex-basis: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 0.5rem;
+  border: 4px solid #ec8d8d;
+  box-shadow: inset 0px 10px 0px 0px #ec8d8d, 4px 4px 0px 0px rgba(0, 0, 0, 0.795);
+}
+.questionDev span {
+  font-family: "VT323";
+  font-size: 23px;
+}
+.questionDev .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.questionDev .buttons button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+.questionDev .buttons button img {
+  width: 20px;
+}
+
+.questionsDev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#addQuestion {
+  font-family: "Press Start 2P";
+  color: black;
+  background-color: #ffa6ff;
+  margin: 1rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.61), inset 3px 3px 0px 0px rgb(255, 255, 255);
+}
+#addQuestion:active {
+  box-shadow: inset -3px -3px 0px 0px rgb(255, 255, 255), inset 3px 3px 0px 0px rgba(0, 0, 0, 0.61);
+}
+
+.questionForm {
+  display: none;
+  padding: 0.5rem;
+  background-color: #734797;
+  width: 70%;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.questionForm form {
+  background-color: #fccefc;
+}
+.questionForm button {
+  background-color: #ec8d8d;
+}
+.questionForm .formHead {
+  background-color: #563174;
+}
+.questionForm h5 {
+  color: #ec8d8d;
+  font-size: 1rem;
+}
+.questionForm .themTextInputs input {
+  margin-left: 1rem;
+  width: 85%;
+}
+.questionForm .themTextInputs label {
+  font-size: 1.5rem;
+}
+.questionForm .questionInputThing {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.questionForm .questionInputThing .themCheckboxesBorder {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.questionForm .questionInputThing .themCheckboxesBorder span {
+  padding-bottom: 0.5rem;
+  font-family: "VT323";
+  font-size: 1.5rem;
+}
+.questionForm .questionInputThing .themCheckboxes {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 1rem;
+  flex-basis: 20%;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.questionForm .questionInputThing .themCheckboxes .theCheckboxe {
+  display: flex;
+  margin: 1rem;
+}
+.questionForm .questionInputThing .themCheckboxes .theCheckboxe label {
+  margin-left: 0.3rem;
+}
+
+.usersBody {
+  background-color: #9d63ff;
+  margin: 1rem;
+}
+.usersBody .theWholeThing {
+  border: 2px solid black;
+  background-color: #63b6b2;
+  box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.61);
+}
+.usersBody .theHeader {
+  background-color: #59a6ac;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.usersBody .theHeader .buttons {
+  display: flex;
+}
+.usersBody .theHeader .buttons button {
+  color: #a2ece8;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 35px;
+  height: 20px;
+  background-color: #476dc0;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.61), inset 2px 2px 0px 0px rgb(255, 255, 255);
+}
+.usersBody .theHeader .buttons button:active {
+  box-shadow: inset -2px -2px 0px 0px rgb(255, 255, 255), inset 2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.usersBody .theHeader h1 {
+  margin-left: 1rem;
+  font-family: "Anonymous Pro", monospace;
+  font-size: 1rem;
+  color: black;
+  letter-spacing: 0.1rem;
+}
+.usersBody .theHeader h1 span {
+  font-size: 0.7rem;
+}
+.usersBody .theContent {
+  background-color: #a2ece8;
+  border: 2px solid black;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: inset 10px 10px 0px 0px rgba(0, 0, 0, 0.486);
+}
+
+.userDiv {
+  width: 100%;
+  margin: 1rem;
+  background-color: #e8c5ff;
+  z-index: 1;
+  padding: 1rem;
+  flex-grow: 1;
+  flex-basis: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 4px solid #476dc0;
+  box-shadow: inset 0px 50px 0px 0px #476dc0, 4px 4px 0px 0px rgba(0, 0, 0, 0.795);
+}
+.userDiv .pfp {
+  width: 80px;
+  border-radius: 50%;
+  border: 5px solid #4464a8;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.486);
+}
+.userDiv .info {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.userDiv .info span {
+  width: 60%;
+  padding: 0.5rem;
+  background-color: #fdfdfd;
+  font-family: "Anonymous Pro";
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: inset 2px -2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.userDiv .info p {
+  font-size: 0.7rem;
+  font-family: "Press Start 2P";
+  line-height: 1.5;
+}
+.userDiv .buttons {
+  width: 100%;
+  margin: 1rem;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+.userDiv .buttons button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.userDiv .buttons button img {
+  width: 20px;
+}
+.userDiv .buttons .feedback {
+  margin-right: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #476dc0;
+  box-shadow: inset -2px -2px 0px 0px rgba(0, 0, 0, 0.61), inset 2px 2px 0px 0px rgba(255, 255, 255, 0.719);
+  border-radius: 5px;
+}
+.userDiv .buttons .feedback:active {
+  box-shadow: inset -2px -2px 0px 0px rgba(255, 255, 255, 0.582), inset 2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.userDiv .buttons .feedback:active a {
+  color: white;
+}
+.userDiv .buttons .feedback a {
+  text-decoration: none;
+  font-family: "Press Start 2P";
+  color: #a2ece8;
+}
+
+.usersDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.recomBody {
+  background-color: #9d63ff;
+  margin: 1rem;
+}
+.recomBody .theWholeThing {
+  border: 2px solid black;
+  background-color: #ff83cb;
+  box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.61);
+}
+.recomBody .theHeader {
+  background-color: #e96eb6;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recomBody .theHeader .buttons {
+  display: flex;
+}
+.recomBody .theHeader .buttons button {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 35px;
+  height: 20px;
+  background-color: #68e2d2;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.61), inset 2px 2px 0px 0px rgb(255, 255, 255);
+}
+.recomBody .theHeader .buttons button:active {
+  box-shadow: inset -2px -2px 0px 0px rgb(255, 255, 255), inset 2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.recomBody .theHeader h1 {
+  margin-left: 1rem;
+  font-family: "Anonymous Pro", monospace;
+  font-size: 1rem;
+  color: black;
+  letter-spacing: 0.1rem;
+}
+.recomBody .theHeader h1 span {
+  font-size: 0.7rem;
+}
+.recomBody .theContent {
+  background-color: #eeebeb;
+  border: 2px solid black;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: inset 10px 10px 0px 0px rgba(0, 0, 0, 0.486);
+}
+
+.recoGenreDiv {
+  margin: 1rem;
+  background-color: #ddffff;
+  z-index: 1;
+  padding: 1rem;
+  flex-basis: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+  border-radius: 0.5rem;
+  border: 1rem solid #2b2e2d;
+  box-shadow: inset 0px 60px 0px 0px #2b2e2d, 4px 4px 0px 0px rgba(0, 0, 0, 0.795);
+}
+.recoGenreDiv h1 {
+  border-radius: 0.5rem;
+  background-color: #ddffff;
+  padding: 0.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: "Press Start 2P";
+  font-size: 1.5rem;
+}
+
+.recoGenresDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.recosDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.recoDiv {
+  border-radius: 5px;
+  flex-basis: 10%;
+  flex-grow: 1;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: rgb(255, 95, 194);
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  box-shadow: inset 3px 3px 0px 0px rgba(0, 0, 0, 0.486), 3px 3px 0px 0px rgb(255, 255, 255);
+}
+.recoDiv .recoImg {
+  width: 100%;
+  border-radius: 5px;
+}
+.recoDiv .playButton {
+  font-family: "VT323";
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #1da676;
+  margin-top: 1rem;
+  box-shadow: inset -2px -2px 0px 0px rgba(0, 0, 0, 0.61), inset 2px 2px 0px 0px rgba(255, 255, 255, 0.719);
+  border-radius: 5px;
+}
+.recoDiv .playButton:active {
+  box-shadow: inset -2px -2px 0px 0px rgba(255, 255, 255, 0.582), inset 2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.recoDiv .buttons {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.recoDiv .buttons button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+.recoDiv .buttons button img {
+  width: 20px;
+}
+.recoDiv span {
+  margin-top: 1rem;
+  font-family: "Anonymous Pro";
+}
+
+#addReco {
+  font-family: "Press Start 2P";
+  color: black;
+  background-color: #68e2d2;
+  margin: 1rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.61), inset 3px 3px 0px 0px rgb(255, 255, 255);
+}
+#addReco:active {
+  box-shadow: inset -3px -3px 0px 0px rgb(255, 255, 255), inset 3px 3px 0px 0px rgba(0, 0, 0, 0.61);
+}
+
+.recoForm {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  z-index: 1;
+  background-color: #68e2d2;
+}
+.recoForm input {
+  width: 97% !important;
+}
+.recoForm select {
+  width: 97% !important;
+}
+.recoForm h5 {
+  color: #fbfcda;
+  font-size: 1rem;
+}
+.recoForm .formHead {
+  background-color: #66b1a7;
+}
+.recoForm form {
+  background-color: #fad29e;
+}
+.recoForm button {
+  background-color: #e0993b;
+}
+
+.feedbacksBody {
+  background-color: #9d63ff;
+  margin: 1rem;
+}
+.feedbacksBody .theWholeThing {
+  border: 2px solid black;
+  background-color: #1da676;
+  box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.61);
+}
+.feedbacksBody .theHeader {
+  background-color: #1e8a64;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.feedbacksBody .theHeader .buttons {
+  display: flex;
+}
+.feedbacksBody .theHeader .buttons button {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 35px;
+  height: 20px;
+  background-color: #fdffa0;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.61), inset 2px 2px 0px 0px rgb(255, 255, 255);
+}
+.feedbacksBody .theHeader .buttons button:active {
+  box-shadow: inset -2px -2px 0px 0px rgb(255, 255, 255), inset 2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.feedbacksBody .theHeader h1 {
+  margin-left: 1rem;
+  font-family: "Anonymous Pro", monospace;
+  font-size: 1rem;
+  color: #fdffa0;
+  letter-spacing: 0.1rem;
+}
+.feedbacksBody .theHeader h1 span {
+  font-size: 0.7rem;
+}
+.feedbacksBody .theContent {
+  background-color: #f1d0f5;
+  border: 2px solid black;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: inset 10px 10px 0px 0px rgba(0, 0, 0, 0.486);
+}
+
+.feedbackDiv {
+  width: 100%;
+  margin: 1rem;
+  background-color: #fffabb;
+  z-index: 1;
+  padding: 1rem;
+  flex-basis: 50%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+  border-radius: 0.5rem;
+  border: 4px solid #1e8a64;
+  box-shadow: inset 0px 10px 0px 0px #1da676, 4px 4px 0px 0px rgba(0, 0, 0, 0.795);
+}
+.feedbackDiv span {
+  font-family: "VT323";
+  font-size: 23px;
+}
+.feedbackDiv .buttons {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+.feedbackDiv .buttons button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+.feedbackDiv .buttons button img {
+  width: 20px;
+}
+.feedbackDiv .info {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.feedbackDiv .info span {
+  width: 60%;
+  padding: 0.5rem;
+  background-color: #fdfdfd;
+  font-family: "Anonymous Pro";
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: inset 2px -2px 0px 0px rgba(0, 0, 0, 0.61);
+}
+.feedbackDiv .info p {
+  font-size: 0.7rem;
+  font-family: "Press Start 2P";
+  line-height: 1.5;
+}
+
+.feedbacksDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.petiteReco {
+  flex-basis: 15%;
+  flex-grow: 1;
+  background-color: #9d63ff;
+  padding: 0.5rem;
+  display: flex;
+  flex-basis: 15%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #55348d;
+  box-shadow: inset 3px 3px 0px 0px rgba(0, 0, 0, 0.486), 3px 3px 0px 0px rgb(255, 255, 255);
+  width: 110px;
+}
+.petiteReco img {
+  width: 100px;
+  border-radius: 5px;
+}
+.petiteReco span {
+  margin-top: 0.5rem;
+  font-family: "Anonymous Pro";
+  font-size: 1rem;
+}
+
+.petiteRecos {
+  border-radius: 3px;
+  width: 97%;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid #55348d;
+  background-color: #c9acfc;
+  flex-wrap: wrap;
+  box-shadow: inset 3px 3px 0px 0px rgba(0, 0, 0, 0.486), 3px 3px 0px 0px rgb(255, 255, 255);
+}
+.petiteRecos h4 {
+  font-family: "VT323";
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}/*# sourceMappingURL=main.css.map */
