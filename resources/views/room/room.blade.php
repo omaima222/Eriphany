@@ -9,7 +9,10 @@
 </head>
 <body class="roomBody">
     <button class="PlayButton"><a href="{{route('quiz')}}">Play</a></button>
+    @if(Auth()->user()->is_admin == 1)
     <button class="DashButton"><a href="{{route('dashboard')}}">Dashboard</a></button>
-    <button class="FilesButton"><a href="">My Files</a></button>
+
+    @endif
+    <button class="FilesButton"><a href="{{route('MyFiles')}}">My Files</a></button>
 </body>
 </html>

@@ -1,0 +1,83 @@
+
+.staticsBody{
+    background-color: #9d63ff;
+    margin: 1rem;
+    .theWholeThing{
+        border: 2px solid black;
+        background-color: #a61d9b;
+        box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.61),
+    }
+    .theHeader{
+        background-color: #7c1574;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .buttons{
+            display: flex;
+            button{
+                margin-left: 0.5rem;
+                cursor: pointer;
+                border: 1px solid black;
+                width: 35px;
+                height: 20px;
+                background-color: #ed8ff0;
+                box-shadow:   2px 2px 0px 0px rgba(0, 0, 0, 0.61),
+                            inset  2px 2px 0px 0px rgb(255, 255, 255);
+                &:active{
+                    box-shadow: inset  -2px -2px 0px 0px rgb(255, 255, 255),
+                    inset  2px 2px 0px 0px rgba(0, 0, 0, 0.61);
+                }
+            } 
+        }
+        h1{
+            margin-left: 1rem;
+            font-family: 'Anonymous Pro', monospace;
+            font-size: 1rem;
+            color: #fdffa0;
+            letter-spacing: 0.1rem;
+            span{      
+                font-size: 0.7rem;
+            }
+        }
+    }
+    .theContent{
+        background-color: #f1d0f5;
+        border: 2px solid black;
+        padding: 1rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        box-shadow: inset  10px 10px 0px 0px rgba(0, 0, 0, 0.486) ;
+    }
+
+}
+
+.staticsCard{
+    height: 40px;
+    width: 100%;
+    margin: 1rem;
+    background-color: #ffeefe;
+    z-index: 1;
+    padding: 1rem;
+    flex-basis: 15%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-radius: 0.5rem;
+    border: 4px solid #a61d9b;
+    box-shadow: inset  3px 3px 0px 0px rgba(0, 0, 0, 0.486) ;
+    span{
+        font-family: 'VT323';
+        font-size: 23px;
+    }
+}
+
+.staticsCards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

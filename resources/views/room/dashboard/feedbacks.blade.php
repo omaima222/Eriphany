@@ -18,6 +18,9 @@
             </div>
         </div>
         <div class="theContent">
+            @if(count($feedbacks)==0)
+               <span class="nothing">Nothing...Yet</span>
+            @endif
             <div class="feedbacksDiv">
                     @foreach( $feedbacks as $feedback )
                         <div class="feedbackDiv">
@@ -33,7 +36,7 @@
                             <div class="info">
                             <p>ranking : </p><span>{{$feedback->ranking}}</span>
                             </div>
-                            <div class="petiteRecos">
+                            <div class="petiteRecosBorder">
                                 <h4>Recommendations</h4>
                                 @foreach($feedback->recommendations as $reco)
                                     <div class="petiteReco">

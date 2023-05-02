@@ -64,9 +64,9 @@ function showResults(){
     card.style.display='none'
     nextButton.innerHTML="bye"
   
-    for(let v=0;v<genres.length;v++){
-        results.innerHTML+="<br>"+genres[v].genre +" = "+genres[v].points
-    }
+    // for(let v=0;v<genres.length;v++){
+    //     results.innerHTML+="<br>"+genres[v].genre +" = "+genres[v].points
+    // }
 
     let maxPoints = Math.max(...genres.map((genre) => genre.points));
     let topGenres = genres.filter((genre) => genre.points === maxPoints).map((genre) => genre.genre);
@@ -82,24 +82,28 @@ function showResults(){
         let randomIndex = Math.floor(Math.random() * AllRecosInGenre.length);
         let randomReco = AllRecosInGenre[randomIndex];
 
-        let genre = document.createElement('h3')
-        genre.innerHTML = randomReco.genre
-        recosInResults.appendChild(genre)
+        let littleReco = document.createElement('div')
+        littleReco.classList.add('littleReco');
+        recosInResults.appendChild(littleReco);
 
         let song = document.createElement('audio');
         song.setAttribute('src', 'audios/recommendations/'+randomReco.genre+'/'+randomReco.song);
         song.setAttribute('type', 'audio/mpeg');
         song.setAttribute('controls', '');
-        recosInResults.appendChild(song);
+        littleReco.appendChild(song);
 
-        let song_name = document.createElement('h3')
-        song_name.innerHTML = randomReco.song_name
-        recosInResults.appendChild(song_name)
+        let song_name = document.createElement('span')
+        song_name.innerHTML = "Song : "+randomReco.song_name
+        littleReco.appendChild(song_name)
 
-        let artist = document.createElement('h3')
-        artist.innerHTML = randomReco.artist
-        recosInResults.appendChild(artist)
+        let artist = document.createElement('span')
+        artist.innerHTML = "By   : "+randomReco.artist
+        littleReco.appendChild(artist)
         console.log(randomReco)
+
+        let genre = document.createElement('span')
+        genre.innerHTML = "Genre : "+randomReco.genre
+        littleReco.appendChild(genre)
 
         let recoIdsArr = document.createElement('input');
         recoIdsArr.setAttribute('type', 'hidden')
@@ -109,7 +113,7 @@ function showResults(){
 
     }
 
-    results.style.display = 'block'
+    results.style.display = 'flex'
 
 }
 
